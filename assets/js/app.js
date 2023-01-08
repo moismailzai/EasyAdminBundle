@@ -264,11 +264,18 @@ class App {
                 const classToRemove = rowsAreSelected ? 'd-block' : 'd-none';
                 const classToAdd = rowsAreSelected ? 'd-none' : 'd-block';
 
-                contentTitle?.classList.replace(classToRemove, classToAdd);
-                filters?.classList.replace(classToRemove, classToAdd);
-                globalActions?.classList.replace(classToRemove, classToAdd);
-                // opposite of the others
-                batchActions?.classList.replace(classToAdd, classToRemove);
+                contentTitle?.classList.add(classToAdd);
+                contentTitle?.classList.remove(classToRemove);
+
+                filters?.classList.add(classToAdd);
+                filters?.classList.remove(classToRemove);
+
+                globalActions?.classList.add(classToAdd);
+                globalActions?.classList.remove(classToRemove);
+
+                // batch actions should be visible when global actions are hidden
+                batchActions?.classList.add(classToRemove);
+                batchActions?.classList.remove(classToAdd);
             });
         });
 

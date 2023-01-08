@@ -4,7 +4,6 @@ require('../css/app.scss');
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle';
 import Mark from 'mark.js/src/vanilla';
 import Autocomplete from './autocomplete';
-import {toggleVisibilityClasses} from "./helpers";
 
 // Provide Bootstrap variable globally to allow custom backend pages to use it
 window.bootstrap = bootstrap;
@@ -262,18 +261,14 @@ class App {
                 const globalActions = content.querySelector('.global-actions');
                 const batchActions = content.querySelector('.batch-actions');
 
-                if (null !== contentTitle) {
-                    toggleVisibilityClasses(contentTitle, rowsAreSelected);
-                }
-                if (null !== filters) {
-                    toggleVisibilityClasses(filters, rowsAreSelected);
-                }
-                if (null !== globalActions) {
-                    toggleVisibilityClasses(globalActions, rowsAreSelected);
-                }
-                if (null !== batchActions) {
-                    toggleVisibilityClasses(batchActions, !rowsAreSelected);
-                }
+                const classToRemove = rowsAreSelected ? 'd-block' : 'd-none';
+                const classToAdd = rowsAreSelected ? 'd-none' : 'd-block';
+
+                contentTitle?.classList.replace(classToRemove, classToAdd);
+                filters?.classList.replace(classToRemove, classToAdd);
+                globalActions?.classList.replace(classToRemove, classToAdd);
+                // opposite of the others
+                batchActions?.classList.replace(classToAdd, classToRemove);
             });
         });
 

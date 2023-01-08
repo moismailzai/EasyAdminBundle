@@ -50,7 +50,8 @@ class FileUploadField {
         }
         this.field.value = '';
         this.#getFieldCustomInput().innerHTML = '';
-        this.#getFieldDeleteButton().classList.replace('d-block', 'd-none');
+        this.#getFieldDeleteButton().classList.add('d-none');
+        this.#getFieldDeleteButton().classList.remove('d-block');
 
         this.#getFieldSizeLabel().childNodes.forEach((fileSizeLabelChild) => {
             if (fileSizeLabelChild.nodeType === Node.TEXT_NODE) {
@@ -59,7 +60,8 @@ class FileUploadField {
         });
 
         if (null !== fieldListOfFiles) {
-            fieldListOfFiles.classList.replace('d-block', 'd-none');
+            fieldListOfFiles.classList.add('d-none');
+            fieldListOfFiles.classList.remove('d-block');
         }
     }
 

@@ -39,8 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (codeBlock.dataset.numberOfRows !== '') {
             const wrapper = editor.getWrapperElement();
             // Here we consider 21px as the average line height
+            // TODO: remove in-line style modification
             wrapper.style.setProperty('height', `${21 * codeBlock.dataset.numberOfRows}px`, 'important');
-            wrapper.style.setProperty('max-height', 'none');
+            wrapper.classList.add('max-height-none');
         }
     });
 });

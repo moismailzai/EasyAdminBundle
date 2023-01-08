@@ -33,7 +33,7 @@ class FileUploadField {
         }
 
         this.#getFieldCustomInput().innerHTML = filename;
-        this.#getFieldDeleteButton().style.display = 'block';
+        this.#getFieldDeleteButton().addClass('d-block');
         this.#getFieldSizeLabel().childNodes.forEach((fileUploadFileSizeLabelChild) => {
             if (fileUploadFileSizeLabelChild.nodeType === Node.TEXT_NODE) {
                 this.#getFieldSizeLabel().removeChild(fileUploadFileSizeLabelChild);

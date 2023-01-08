@@ -44,6 +44,7 @@ class App {
             // visible elements must be initialized with a explicit max-height; otherwise
             // when you click on them the first time, the animation is not smooth
             if (menuItem.classList.contains('expanded')) {
+                // TODO: remove in-line style modification
                 menuItemSubmenu.style.maxHeight = menuItemSubmenu.scrollHeight + 'px';
             }
 
@@ -58,16 +59,17 @@ class App {
 
                     const otherMenuItemSubmenu = otherMenuItem.querySelector('.submenu');
                     if (otherMenuItem.classList.contains('expanded')) {
-                        otherMenuItemSubmenu.style.maxHeight = '0px';
+                        otherMenuItem.classList.add('max-height-0');
                         otherMenuItem.classList.remove('expanded');
                     }
                 });
 
                 // toggle the state of this submenu
                 if (menuItem.classList.contains('expanded')) {
-                    menuItemSubmenu.style.maxHeight = '0px';
+                    menuItemSubmenu.classList.add('max-height-0');
                     menuItem.classList.remove('expanded');
                 } else {
+                    // TODO: remove in-line style modification
                     menuItemSubmenu.style.maxHeight = menuItemSubmenu.scrollHeight + 'px';
                     menuItem.classList.add('expanded');
                 }
@@ -389,8 +391,7 @@ class App {
                 if (secondValue === null) {
                     return;
                 }
-
-                secondValue.style.display = comparisonWidget.value === 'between' ? '' : 'none';
+                secondValue.classList.add(comparisonWidget.value === 'between' ? '' : 'none');
             });
         });
     }

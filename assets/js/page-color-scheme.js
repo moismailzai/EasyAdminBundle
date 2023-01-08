@@ -53,7 +53,7 @@ class ColorSchemeHandler {
         document.body.classList.remove('ea-light-scheme', 'ea-dark-scheme');
         document.body.classList.add('light' === resolvedColorScheme ? 'ea-light-scheme' : 'ea-dark-scheme');
         localStorage.setItem(this.#colorSchemeLocalStorageKey, colorScheme);
-        document.body.style.colorScheme = resolvedColorScheme;
+        document.body.classList.add('color-scheme-' + resolvedColorScheme)
     }
 }
 

@@ -6,14 +6,9 @@ class Autogrow {
     }
 
     autogrow() {
-        this.field.style.overflow = 'hidden';
-        this.field.style.resize = 'none';
-        this.field.style.boxSizing = 'border-box';
-        this.field.style.height = 'auto';
-
-        // this check is needed because the <textarea> element can be inside a
-        // minimizable panel, causing its scrollHeight value to be 0
+        this,field.addClass('field-autogrow');
         if (this.field.scrollHeight > 0) {
+            // TODO: remove in-line style modification
             this.field.style.height = this.field.scrollHeight + 'px';
         }
     }

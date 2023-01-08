@@ -207,3 +207,18 @@
   max-height: 480px;
   overflow-y: auto;
 }
+
+.field-autogrow {
+  overflow: 'hidden';
+  resize: 'none';
+  boxSizing: 'border-box';
+  height: 'auto';
+}
+
+.max-height-0 {
+  max-height: 0;
+}
+
+.max-height-none {
+  max-height: none;
+}

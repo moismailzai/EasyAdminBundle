@@ -35,6 +35,7 @@ class TextEditorField {
 
                 if (editor !== null) {
                     // Here we consider 21px as the average line height
+                    // TODO: remove in-line style modification
                     editor.style.setProperty('min-height', `${21 * trixContentElement.dataset.numberOfRows}px`);
                 }
             }
